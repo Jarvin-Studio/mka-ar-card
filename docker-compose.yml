@@ -1,0 +1,25 @@
+version: '3.9'
+
+volumes:
+  node_modules:
+  npm_global:
+
+services:
+  frontend:
+    image: node:22-alpine
+    env_file: ".env"
+    environment:
+      NPM_CONFIG_PREFIX: "/home/node/.npm-global"
+      PATH: "$PATH:/home/node/.npm-global/bin" # optionally if you want to run npm global bin without specifying path
+    volumes:
+      - ".:/app"
+      - "node_modules:/app/apps/frontend/node_modules"
+      - "npm_global:/home/node/.npm-global"
+    working_dir: "/app/apps/frontend"
+    #command: "npm run dev"
+    command: "top"
+    ports:
+      - "3000:3000"
+    # external_links:
+    #   - "router:router" 
+    restart: unless-stopped

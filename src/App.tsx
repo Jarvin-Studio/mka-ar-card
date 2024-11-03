@@ -3,6 +3,10 @@ import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 // import { useAuthenticator } from '@aws-amplify/ui-react';
 
+import 'aframe'
+
+import { motion } from "framer-motion"
+
 const client = generateClient<Schema>();
 
 function App() {
@@ -27,6 +31,28 @@ function App() {
   return (
     <main>
       {/* <h1>{user?.signInDetails?.loginId}'s todos</h1> */}
+      <a-scene>
+        <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
+        <a-marker-camera preset='hiro'></a-marker-camera>
+      </a-scene>
+      <div className="grid grid-rows-8 h-screen w-screen">
+        <div className="row-span-7 text-white">
+        </div>
+
+        <div>
+          <motion.div
+              className="text-center py-[12.5%]"
+              transition={{ delay: 1 }}
+              animate={{ y: -60 }}
+          >
+            <a className="text-white bg-blue-500 w-screen p-5 w-screen flex justify-center" href="https://www.mkainc.com">
+              Go to profile
+            </a>
+          </motion.div>
+        </div>
+      </div>
+
+
       <h1>My Todo's</h1>
       <button onClick={createTodo}>+ new</button>
       <ul>
