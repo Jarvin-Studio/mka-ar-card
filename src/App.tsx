@@ -3,8 +3,8 @@ import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 // import { useAuthenticator } from '@aws-amplify/ui-react';
 
-import 'aframe';
-import 'aframe-ar';
+// import 'aframe';
+// import 'aframe-ar';
 
 import { motion } from "framer-motion"
 
@@ -32,12 +32,6 @@ function App() {
   return (
     <main>
       {/* <h1>{user?.signInDetails?.loginId}'s todos</h1> */}
-      <a-scene embedded arjs>
-        {/* @ts-ignore */}
-        <a-box position='0 0.5 0' material='opacity: 0.5;'>{/* @ts-ignore */}</a-box>
-        <a-marker-camera preset='hiro'>{/* @ts-ignore */}</a-marker-camera>
-        <a-camera>{/* @ts-ignore */}</a-camera>
-      </a-scene>
       <div className="grid grid-rows-8 h-screen w-screen">
         <div className="row-span-7 text-white">
         </div>
