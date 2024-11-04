@@ -3,7 +3,8 @@ import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 // import { useAuthenticator } from '@aws-amplify/ui-react';
 
-import 'aframe'
+import 'aframe';
+import 'aframe-ar';
 
 import { motion } from "framer-motion"
 
@@ -31,10 +32,11 @@ function App() {
   return (
     <main>
       {/* <h1>{user?.signInDetails?.loginId}'s todos</h1> */}
-      <a-scene>
+      <a-scene embedded arjs>
         {/* @ts-ignore */}
         <a-box position='0 0.5 0' material='opacity: 0.5;'>{/* @ts-ignore */}</a-box>
         <a-marker-camera preset='hiro'>{/* @ts-ignore */}</a-marker-camera>
+        <a-camera>{/* @ts-ignore */}</a-camera>
       </a-scene>
       <div className="grid grid-rows-8 h-screen w-screen">
         <div className="row-span-7 text-white">
@@ -54,23 +56,23 @@ function App() {
       </div>
 
 
-      <h1>My Todo's</h1>
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li 
-            key={todo.id} 
-            onClick={() => deleteTodo(todo.id)}
-          >{todo.content}</li>
-        ))}
-      </ul>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
-          Review next step of this tutorial.
-        </a>
-      </div>
+      {/* <h1>My Todo's</h1> */}
+      {/* <button onClick={createTodo}>+ new</button> */}
+      {/* <ul> */}
+      {/*   {todos.map((todo) => ( */}
+      {/*     <li  */}
+      {/*       key={todo.id}  */}
+      {/*       onClick={() => deleteTodo(todo.id)} */}
+      {/*     >{todo.content}</li> */}
+      {/*   ))} */}
+      {/* </ul> */}
+      {/* <div> */}
+      {/*   🥳 App successfully hosted. Try creating a new todo. */}
+      {/*   <br /> */}
+      {/*   <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates"> */}
+      {/*     Review next step of this tutorial. */}
+      {/*   </a> */}
+      {/* </div> */}
       {/* <button onClick={signOut}>Sign out</button> */}
     </main>
   );
