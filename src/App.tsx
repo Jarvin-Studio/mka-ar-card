@@ -32,8 +32,9 @@ function App() {
     <main>
       {/* <h1>{user?.signInDetails?.loginId}'s todos</h1> */}
       <a-scene>
-        <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
-        <a-marker-camera preset='hiro'></a-marker-camera>
+        {/* @ts-ignore */}
+        <a-box position='0 0.5 0' material='opacity: 0.5;'>{/* @ts-ignore */}</a-box>
+        <a-marker-camera preset='hiro'>{/* @ts-ignore */}</a-marker-camera>
       </a-scene>
       <div className="grid grid-rows-8 h-screen w-screen">
         <div className="row-span-7 text-white">
